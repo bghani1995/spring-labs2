@@ -24,9 +24,8 @@ public class CartServiceImpl implements CartService {
 
         return CART_LIST
                 .stream()
-                .filter(cart -> cart.getId().equals(cartId.toString()))
-                .map(p -> p.getCartItemList())
-                .findAny().orElseThrow();
+                .filter(cart -> cart.getId().equals(cartId))
+                .findFirst().get().getCartItemList();
     }
 
     @Override
